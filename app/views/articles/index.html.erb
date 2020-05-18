@@ -4,7 +4,7 @@
         <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Actions</th>
+            <th colspan="3">Actions</th>
         </tr>
     </thead>
 
@@ -14,9 +14,12 @@
             <td><%= article.title %></td>
             <td> <%= article.description%></td>
             <td><%= link_to "Show", article_path(article.id)%></td>
-            <%# Standard GET route exposed, need to specify the specific DELETE method with a symbol %>
-            <td><%= link_to "Delete", article_path(article.id), method: :delete%></td>
+            <td><%= link_to "Edit",edit_article_path(article.id) %></td>
+             <%# Standard GET rout exposed, need to expose the delete method
+             with the method :delete symbol %>
+            <td><%= link_to "Delete", article_path(article.id), method: :delete, data: { confirm: "Are you sure?" }%></td>
         </tr>
         <% end %>
     </tbody>
 </table>
+<p><%= button_to "Create new Article",new_article_path, method: :get%></p>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Create the home and about routes
   root 'pages#home'
   get 'about', to: 'pages#about'
-  # create only the "show" route
-  resources :articles, only: [:show, :index, :new, :create, :edit, :update]
+  # create only the individual routes one by one
+  # resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  resources :articles
 end
