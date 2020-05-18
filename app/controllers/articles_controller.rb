@@ -1,5 +1,6 @@
 #ArticlesController inherits from ApplicationController
 class ArticlesController < ApplicationController
+  before_action :set_article, only:[:show, :edit, :update, :destroy]
 
     def show
         #Assign an item from the Article table to a variable
@@ -9,7 +10,7 @@ class ArticlesController < ApplicationController
         #accessing article id tp show on page
 
         #'@' converts a variable to an instance variable
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
     end
     def index
         # show all
@@ -22,14 +23,17 @@ class ArticlesController < ApplicationController
 
     def edit
         # find the article based on the ID from the params hash
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
     end
 
     def create
         # create new article with instance variable
         # values need to be whitelisted to be allowed
         # to post
-        @article = Article.new(params.require(:article).permit(:title, :description))
+        # @article = Article.new(params.require(:article).permit(:title, :description))
+        
+        @article = Article.new(article_params_whitelist)
+        
         # save the article
         if @article.save
           flash[:notice] = "Article was created successfully"
@@ -46,8 +50,10 @@ class ArticlesController < ApplicationController
     #Update definition
     def update
         # find the specific article to update by ID
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
         # if the update was successful
+        # if @article.update(params.require(:article).permit(:title, :description))
+
         if @article.update(params.require(:article).permit(:title, :description))
             # display msg on screen
             flash[:notice] = "Article was updated successfully"
@@ -59,8 +65,22 @@ class ArticlesController < ApplicationController
     end
     # destroy route
     def destroy
-      @article = Article.find(params[:id])
+      # @article = Article.find(params[:id])
       @article.destroy
       redirect_to articles_path
+    end
+
+    # This private is NOT a code block.  Anything following it is simply a private method
+    # or function
+    private 
+
+    # for refactoring.  Run before any action to grab the article ID for specific actions
+    def set_article
+      @article = Article.find(params[:id])
+    end
+    # for refactoring
+    # returns the whitelisted params for use in the create and update actions
+    def article_params_whitelist
+      params.require(:article).permit(:title, :description)
     end
 end 
