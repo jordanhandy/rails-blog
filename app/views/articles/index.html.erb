@@ -18,8 +18,8 @@
             <a href="#" class="btn btn-outline-danger">Delete</a>
           </div>
           <div class="card-footer text-muted">
-            <small>Created <%= article.created_at %> ago,
-            Edited <%= article.updated_at %> ago</small>
+            <small>Created <%= time_ago_in_words(article.created_at) %> ago,
+            Edited <%= time_ago_in_words(article.updated_at) %> ago</small>
           </div>
         </div>
       </div>
