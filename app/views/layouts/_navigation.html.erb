@@ -9,9 +9,14 @@
         <%# <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a> %>
         <%= link_to "HOME", root_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%# <a class="nav-link" href="#">BLOG<span class="sr-only">(current)</span></a> %>
-        <%= link_to "BLOG", articles_path, class: "nav-link" %>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BLOG
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Articles", articles_path, class: "dropdown-item" %>
+          <%= link_to "Create Article", new_article_path, class: "dropdown-item" %>
+        </div>
       </li>
       <li class="nav-item">
         <%# <a class="nav-link" href="#">ABOUT<span class="sr-only">(current)</span></a> %>
@@ -21,6 +26,7 @@
         <%# <a class="nav-link" href="#">MAIN SITE<span class="sr-only">(current)</span></a> %>
         <%= link_to "MAIN SITE", "https://www.jordanhandy.com", class: "nav-link" %>
       </li>
+
     </ul>
   </div>
 </nav>
