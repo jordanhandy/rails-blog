@@ -14,8 +14,6 @@
             <%= link_to "View", article_path(article), class: "btn btn-outline-success" %>
             <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
             <%= link_to "Delete", article_path(article), method: :delete, class: "btn btn-outline-danger" %>
-            <a href="#" class="btn btn-outline-info">Edit</a>
-            <a href="#" class="btn btn-outline-danger">Delete</a>
           </div>
           <div class="card-footer text-muted">
             <small>Created <%= time_ago_in_words(article.created_at) %> ago,
@@ -26,4 +24,4 @@
     </div>
   <% end %>
 </div>
-<p><%= button_to "Create new Article",new_article_path, method: :get%></p>
+<%# <p><%= button_to "Create new Article",new_article_path, method: :get%></p> 
