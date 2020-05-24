@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
         # @article = Article.new(params.require(:article).permit(:title, :description))
         
         @article = Article.new(article_params_whitelist)
+        @article.user = User.first
         
         # save the article
         if @article.save
