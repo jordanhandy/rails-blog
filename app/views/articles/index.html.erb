@@ -1,11 +1,12 @@
 <h1 class="mt-4">Articles Listing Page</h1>
 <div class="container">
+<%#  loop through each article %>
   <% @articles.each do |article| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
         <div class="card text-center shadow mb-5 bg-white rounded">
           <div class="card-header font-italic">
-            by Jordan Handy
+            by <%= @rticle.user.username %>
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-danger" %></h5>
