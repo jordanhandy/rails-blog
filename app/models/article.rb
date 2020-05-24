@@ -1,5 +1,7 @@
 # define article model as class, inherits from ApplicationRecord
 class Article < ApplicationRecord
+    # create association between Articles and a User
+
     belongs_to :user
     # ensures the title is present for any article to be saved
     # enforcing minimum data lengths for the title and the description

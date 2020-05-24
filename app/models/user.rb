@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+    # define User model
+    # - Lowercase email address before before save
+    # - Make association between users and many articles 
+    # - ensure data validation for the presence of a username, and character limits
+    # - ensure email is in the correct format
+    
+    before_save {self.email = email.downcase}
     has_many :articles
     validates :username, presence: true, length: { minimum: 3, maximum: 25 }, uniqueness: { case_sensitive: false }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
