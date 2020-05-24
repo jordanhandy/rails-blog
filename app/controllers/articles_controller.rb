@@ -14,7 +14,10 @@ class ArticlesController < ApplicationController
     end
     def index
         # show all
-        @articles = Article.all
+        # @articles = Article.all
+
+        # add pagination
+        @articles = Article.paginate(page: params[:page], per_page: 5)
     end
     def new
         # creat article instance variable for use with new submissions
