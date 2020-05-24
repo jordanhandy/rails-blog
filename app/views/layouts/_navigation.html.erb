@@ -9,10 +9,10 @@
         <%# <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a> %>
         <%= link_to "HOME", root_path, class: "nav-link" %>
       </li>
-        <li class="nav-item">
+      <li class="nav-item">
         <%= link_to "USERS", users_path, class: "nav-link" %>
       </li>
-            <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           BLOG
         </a>
@@ -26,10 +26,15 @@
         <%= link_to "ABOUT", about_path, class: "nav-link"  %>
       </li>
       <li class="nav-item">
+        <%= link_to "LOG IN", login_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "LOGOUT", logout_path, class: "nav-link", method: :delete %>
+      </li>
+      <li class="nav-item">
         <%# <a class="nav-link" href="#">MAIN SITE<span class="sr-only">(current)</span></a> %>
         <%= link_to "MAIN SITE", "https://www.jordanhandy.com", class: "nav-link" %>
       </li>
-
     </ul>
   </div>
 </nav>
