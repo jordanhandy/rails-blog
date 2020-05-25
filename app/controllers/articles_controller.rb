@@ -36,6 +36,8 @@ class ArticlesController < ApplicationController
         # @article = Article.new(params.require(:article).permit(:title, :description))
         
         @article = Article.new(article_params_whitelist)
+        # assign the user who created the article to the currently logged in user
+        # see the application controller helper methods
         @article.user = current_user
         
         # save the article
