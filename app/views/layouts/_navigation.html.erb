@@ -30,7 +30,7 @@
       <% if logged_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          PROFILE [<%= current_user.username %>]
+          <%= "(ADMIN)" if current_user.admin? %>PROFILE [<%= current_user.username %>]
           </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to "View Your Profile", user_path(current_user), class: "dropdown-item" %>
