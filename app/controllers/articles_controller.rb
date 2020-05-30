@@ -89,7 +89,7 @@ class ArticlesController < ApplicationController
     # for refactoring
     # returns the whitelisted params for use in the create and update actions
     def article_params_whitelist
-      params.require(:article).permit(:title, :description)
+      params.require(:article).permit(:title, :description, :category_ids: [])
     end
 
     def require_same_user
