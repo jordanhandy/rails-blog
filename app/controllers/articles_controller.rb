@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
         # if the update was successful
         # if @article.update(params.require(:article).permit(:title, :description))
 
-        if @article.update(params.require(:article).permit(:title, :description))
+        if @article.update(article_params_whitelist)
             # display msg on screen
             flash[:notice] = "Article was updated successfully"
             redirect_to @article
